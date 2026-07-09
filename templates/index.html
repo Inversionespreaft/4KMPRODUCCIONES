@@ -1,0 +1,101 @@
+{% extends 'Layouts/base.html' %}
+
+{% block title %}4KM Producciones | Productora audiovisual premium en Perú{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-bg-carousel" id="heroBgCarousel">
+        <div class="hero-bg-slide active" style="background-image: url('/static/img/carousel/hero-slide-1.svg');"></div>
+        <div class="hero-bg-slide" style="background-image: url('/static/img/carousel/hero-slide-2.svg');"></div>
+        <div class="hero-bg-slide" style="background-image: url('/static/img/carousel/hero-slide-3.svg');"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content-landing">
+        <span class="hero-kicker">EVENTOS, PUBLICIDAD Y DRONE</span>
+        <h1 class="hero-title">Historias que trascienden</h1>
+        <p class="hero-subtitle">Estudio de producción audiovisual premium en Lima. Creamos paquetes claros para sesiones, bodas, graduaciones, contenido corporativo y storytelling de alto impacto.</p>
+        <div class="hero-buttons">
+            <a href="/paquetes" class="btn btn-primary">Ver paquetes</a>
+            <a href="/servicios" class="btn btn-secondary">Ver servicios</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section-black">
+    <div class="container">
+        <span class="section-tagline">Categorías</span>
+        <h2 class="section-title">Explora nuestros paquetes</h2>
+        <div class="category-grid">
+            <article class="category-card reveal">
+                <h3>Parejas</h3>
+                <p>Sesiones románticas con estética cinematográfica.</p>
+                <a href="/paquetes/parejas" class="btn btn-primary">Ir a Parejas</a>
+            </article>
+            <article class="category-card reveal">
+                <h3>Familiar</h3>
+                <p>Memorias familiares reales con ambiente cálido y elegante.</p>
+                <a href="/paquetes/familiar" class="btn btn-primary">Ir a Familiar</a>
+            </article>
+            <article class="category-card reveal">
+                <h3>Graduación</h3>
+                <p>Capturamos cada logro con un enfoque creativo y premium.</p>
+                <a href="/paquetes/graduacion" class="btn btn-primary">Ir a Graduación</a>
+            </article>
+            <article class="category-card reveal">
+                <h3>Bodas</h3>
+                <p>Producción completa para el día más importante.</p>
+                <a href="/paquetes/bodas" class="btn btn-primary">Ir a Bodas</a>
+            </article>
+            <article class="category-card reveal">
+                <h3>LinkedIn</h3>
+                <p>Retratos y videos para branding personal y corporativo.</p>
+                <a href="/paquetes/linkedin" class="btn btn-primary">Ir a LinkedIn</a>
+            </article>
+            <article class="category-card reveal">
+                <h3>Temáticas</h3>
+                <p>Conceptos visuales únicos para campañas y eventos especiales.</p>
+                <a href="/paquetes/tematicas" class="btn btn-primary">Ir a Temáticas</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section section-dark">
+    <div class="container">
+        <span class="section-tagline">Servicios premium</span>
+        <h2 class="section-title">Todo el proceso en una sola agencia</h2>
+        <div class="package-grid">
+            <article class="package-card reveal service-card-visual" style="--service-bg: linear-gradient(135deg, rgba(212,175,55,0.28), rgba(11,11,11,0.7)), url('/static/img/hero/hero-slide-1.svg');">
+                <div class="service-card-content">
+                    <h3>Producción</h3>
+                    <p>Guion, dirección y captura para videos corporativos y eventos.</p>
+                    <a href="/servicios/produccion-audiovisual" class="btn btn-secondary">Ver servicio</a>
+                </div>
+            </article>
+            <article class="package-card reveal service-card-visual" style="--service-bg: linear-gradient(135deg, rgba(212,175,55,0.28), rgba(11,11,11,0.7)), url('/static/img/hero/hero-slide-2.svg');">
+                <div class="service-card-content">
+                    <h3>Drone</h3>
+                    <p>Tomas aéreas 4K para generar una identidad visual superior.</p>
+                    <a href="/servicios/drone-aereo" class="btn btn-secondary">Ver servicio</a>
+                </div>
+            </article>
+            <article class="package-card reveal service-card-visual" style="--service-bg: linear-gradient(135deg, rgba(212,175,55,0.28), rgba(11,11,11,0.7)), url('/static/img/hero/hero-slide-3.svg');">
+                <div class="service-card-content">
+                    <h3>Streaming</h3>
+                    <p>Transmisiones profesionales para congresos, lanzamientos y eventos.</p>
+                    <a href="/servicios/streaming-profesional" class="btn btn-secondary">Ver servicio</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section section-black">
+    <div class="container">
+        <span class="section-tagline">Contacto</span>
+        <h2 class="section-title">Cotiza tu proyecto</h2>
+        <p class="section-copy">Escríbenos por WhatsApp y armamos una propuesta adaptada a tu evento, marca o sesión.</p>
+        <a href="https://wa.me/51924130007?text=Hola%204KM%20Producciones,%20quiero%20una%20cotización" class="btn btn-primary">Solicitar cotización</a>
+    </div>
+</section>
+{% endblock %}

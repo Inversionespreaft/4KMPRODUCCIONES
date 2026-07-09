@@ -16,6 +16,10 @@ def servicios_hub():
     # Módulo Hub centralizado de servicios
     return render_template('servicios_hub.html')
 
+@web_bp.route('/sesiones')
+def sesiones():
+    return render_template('paquetes/index.html', categories={})
+
 @web_bp.route('/servicios/<slug>')
 def servicio_individual(slug):
     # Lista de servicios válidos según documento técnico

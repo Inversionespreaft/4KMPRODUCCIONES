@@ -1,39 +1,25 @@
-import os
 import re
-from flask import Flask, render_template, request, jsonify, flash, redirect, url_for, send_file
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, request, jsonify
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
+from config import DevelopmentConfig
+from models import db, Lead
+from routes.web import web_bp
+from routes.paquetes import paquetes_bp
+from models import Code, Winner
 
-# Configuración básica y de seguridad
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '4KM_Secret_Ultra_Premium_Key_2026')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///leads_4km.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app = Flask(__name__, static_folder='static', template_folder='templates')
+app.config.from_object(DevelopmentConfig)
 
-# Configuración de Mail (Ajustar con credenciales reales en producción)
-app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER', 'smtp.gmail.com')
-app.config['MAIL_PORT'] = int(os.environ.get('MAIL_PORT', 587))
-app.config['MAIL_USE_TLS'] = os.environ.get('MAIL_USE_TLS', 'True') == 'True'
-app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', 'contacto@4kmproducciones.com')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'tu_password_seguro')
-app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_DEFAULT_SENDER', 'contacto@4kmproducciones.com')
-
-db = SQLAlchemy(app)
+db.init_app(app)
 mail = Mail(app)
 
-# Modelo de Base de Datos para Leads
-class Lead(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(100), nullable=False)
-    correo = db.Column(db.String(120), nullable=False)
-    telefono = db.Column(db.String(20), nullable=False)
-    servicio = db.Column(db.String(100), nullable=False)
-    mensaje = db.Column(db.Text, nullable=False)
-    fecha = db.Column(db.DateTime, default=db.func.current_timestamp())
+# Registrar Blueprints
+app.register_blueprint(web_bp)
+app.register_blueprint(paquetes_bp)
 
 # Inicializar Base de Datos dentro del contexto de la App
 with app.app_context():
@@ -47,10 +33,6 @@ def es_valido(texto):
         if re.search(patron, texto, re.IGNORECASE):
             return False
     return True
-
-@app.route('/')
-def index():
-    return send_file('index.html')
 
 @app.route('/api/contacto', methods=['POST'])
 def contacto():
@@ -92,6 +74,80 @@ def contacto():
     except Exception as e:
         db.session.rollback()
         return jsonify({"status": "error", "message": f"Error interno en el servidor: {str(e)}"}), 500
+
+
+@app.route('/api/validate_code', methods=['POST'])
+def validate_code():
+    code = request.form.get('code', '').strip().upper()
+    if not code:
+        return jsonify({'status': 'error', 'message': 'Código requerido.'}), 400
+    found = Code.query.filter_by(code=code).first()
+    if not found:
+        return jsonify({'status': 'invalid', 'message': 'Código inválido.'}), 404
+    if found.used:
+        return jsonify({'status': 'used', 'message': 'Código ya usado.'}), 400
+    return jsonify({'status': 'ok', 'message': 'Código válido.', 'package': found.package}), 200
+
+
+@app.route('/api/game_result', methods=['POST'])
+def game_result():
+    nombre = request.form.get('nombre', '').strip()
+    correo = request.form.get('correo', '').strip()
+    telefono = request.form.get('telefono', '').strip()
+    code = request.form.get('code', '').strip().upper()
+    prize = request.form.get('prize', '').strip()
+    package = request.form.get('package', '').strip()
+
+    if not (nombre and prize):
+        return jsonify({'status': 'error', 'message': 'Faltan datos obligatorios.'}), 400
+
+    code_rec = None
+    if code:
+        code_rec = Code.query.filter_by(code=code).first()
+        if not code_rec:
+            return jsonify({'status': 'error', 'message': 'Código inválido.'}), 404
+        if code_rec.used:
+            return jsonify({'status': 'error', 'message': 'Código ya usado.'}), 400
+
+    try:
+        winner = Winner(nombre=nombre, correo=correo or None, telefono=telefono or None, code=code or None, prize=prize, package=package or None)
+        db.session.add(winner)
+        if code_rec:
+            code_rec.used = True
+            db.session.add(code_rec)
+        db.session.commit()
+        return jsonify({'status': 'ok', 'message': 'Ganador registrado.'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+
+@app.route('/admin/winners')
+def admin_winners():
+    winners = Winner.query.order_by(Winner.created_at.desc()).all()
+    rows = ''.join([f"<tr><td>{w.id}</td><td>{w.nombre}</td><td>{w.correo or ''}</td><td>{w.telefono or ''}</td><td>{w.code or ''}</td><td>{w.prize}</td><td>{w.package or ''}</td><td>{w.created_at}</td></tr>" for w in winners])
+    return f"<html><head><title>Winners</title></head><body><h2>Winners</h2><table border=1><tr><th>ID</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Código</th><th>Prize</th><th>Package</th><th>Fecha</th></tr>{rows}</table></body></html>"
+
+
+@app.route('/admin/create_code', methods=['POST'])
+def admin_create_code():
+    # Simple admin helper to create single-use codes (use protected in production)
+    code = request.form.get('code', '').strip().upper()
+    package = request.form.get('package', '').strip()
+    assigned = request.form.get('assigned_to', '').strip()
+    if not code:
+        return jsonify({'status': 'error', 'message': 'Código requerido.'}), 400
+    existing = Code.query.filter_by(code=code).first()
+    if existing:
+        return jsonify({'status': 'error', 'message': 'Código ya existe.'}), 400
+    try:
+        c = Code(code=code, package=package or None, assigned_to=assigned or None)
+        db.session.add(c)
+        db.session.commit()
+        return jsonify({'status': 'ok', 'message': 'Código creado.'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'status': 'error', 'message': str(e)}), 500
 
 # Panel Básico Administrativo Protegido (Hardcoded para fines demostrativos)
 @app.route('/admin/dashboard')

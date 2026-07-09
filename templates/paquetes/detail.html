@@ -1,0 +1,40 @@
+{% extends 'Layouts/base.html' %}
+
+{% block title %}{{ package.name }} - {{ category.title }} | 4KM Producciones{% endblock %}
+
+{% block content %}
+<section class="package-detail-hero">
+    <div class="container">
+        <span class="section-tagline">{{ category.title }}</span>
+        <h1>{{ package.name }}</h1>
+        <p class="section-copy">{{ package.description }}</p>
+    </div>
+</section>
+
+<section class="package-detail-content">
+    <div class="container">
+        <div class="package-detail-grid">
+            <div class="package-detail-main">
+                <h2>Incluye</h2>
+                <ul class="package-features">
+                    {% for feature in package.features %}
+                    <li>{{ feature }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <aside class="package-detail-aside">
+                <div class="package-offer-card">
+                    <span class="package-price">{{ package.price }}</span>
+                    <p>{{ package.description }}</p>
+                    <a href="https://api.whatsapp.com/send?phone={{ category.whatsapp }}&text={{ package.whatsapp_message }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contratar vía WhatsApp</a>
+                </div>
+            </aside>
+        </div>
+
+        <div class="package-detail-actions">
+            <a href="/paquetes/{{ category_slug }}" class="btn btn-secondary">Volver a {{ category.title }}</a>
+            <a href="/paquetes" class="btn btn-outline">Ver todas las categorías</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

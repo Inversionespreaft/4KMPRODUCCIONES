@@ -1,0 +1,26 @@
+{% extends 'Layouts/base.html' %}
+
+{% block title %}Servicio - {{ servicio | replace('-', ' ') | title }} | 4KM Producciones{% endblock %}
+
+{% block content %}
+<section class="service-detail-hero">
+    <div class="container">
+        <span class="section-tagline">Servicio</span>
+        <h1>{{ servicio | replace('-', ' ') | title }}</h1>
+        <p class="section-copy">Conoce cómo 4KM Producciones gestiona este servicio con enfoque estratégico, visual y profesional.</p>
+    </div>
+</section>
+
+<section class="service-detail-content">
+    <div class="container">
+        <p>Descripción breve del servicio <strong>{{ servicio | replace('-', ' ') | title }}</strong>. Esta página se puede enriquecer con ejemplos de trabajos, beneficios y resultados esperados.</p>
+        <ul>
+            <li>Concepto visual y guión creativo</li>
+            <li>Producción con equipo profesional</li>
+            <li>Postproducción y entrega en formatos web y redes sociales</li>
+        </ul>
+        <a href="/paquetes" class="btn btn-primary">Ver paquetes</a>
+        <a href="/" class="btn btn-outline">Volver al inicio</a>
+    </div>
+</section>
+{% endblock %}

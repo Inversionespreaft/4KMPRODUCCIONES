@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#060606"/>
+  <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#1f1f1f"/>
+    <stop offset="100%" stop-color="#2f1f11"/>
+  </linearGradient>
+  <rect x="0" y="0" width="1200" height="700" fill="url(#g2)"/>
+  <text x="50" y="120" font-family="Inter, sans-serif" font-size="56" fill="#D4AF37">Drone Filmación</text>
+  <text x="50" y="200" font-family="Inter, sans-serif" font-size="32" fill="#FFF">Grabaciones aéreas con drones y perspectiva cinematográfica.</text>
+  <rect x="40" y="260" width="640" height="340" rx="24" fill="rgba(255,255,255,0.06)"/>
+  <text x="60" y="340" font-family="Cormorant Garamond, serif" font-size="28" fill="#FFF">Tomas aéreas para eventos deportivos, conciertos y producciones de marca.</text>
+</svg>

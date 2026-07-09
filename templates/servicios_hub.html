@@ -1,0 +1,41 @@
+{% extends 'Layouts/base.html' %}
+
+{% block title %}Servicios | 4KM Producciones{% endblock %}
+
+{% block content %}
+<section class="service-hero">
+    <div class="container">
+        <span class="section-tagline">Servicios Audiovisuales</span>
+        <h1>Producción, streaming y contenido para tu marca</h1>
+        <p class="section-copy">Descubre nuestra oferta de servicios para empresas, eventos y creadores de contenido. Cada servicio se puede personalizar según tu objetivo y presupuesto.</p>
+    </div>
+</section>
+
+<section class="services-grid">
+    <div class="container">
+        <div class="service-card">
+            <h2>Producción Audiovisual</h2>
+            <p>Videos corporativos, comerciales y contenido narrativo con calidad cinematográfica.</p>
+        </div>
+        <div class="service-card">
+            <h2>Streaming Profesional</h2>
+            <p>Transmisiones en vivo con equipos dedicados y soporte técnico para eventos híbridos.</p>
+        </div>
+        <div class="service-card">
+            <h2>Fotografía</h2>
+            <p>Retratos, sesiones editoriales y fotografía de producto con estilo premium.</p>
+        </div>
+        <div class="service-card">
+            <h2>Tomas Aéreas</h2>
+            <p>Video y fotografía con drone para presentaciones, inmuebles y producciones especiales.</p>
+        </div>
+    </div>
+</section>
+
+<section class="service-cta">
+    <div class="container">
+        <a href="/paquetes" class="btn btn-primary">Ver paquetes por categoría</a>
+        <a href="/" class="btn btn-outline">Volver al inicio</a>
+    </div>
+</section>
+{% endblock %}

@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://www.4kmproducciones.com/">
     <meta property="og:title" content="Productora Audiovisual Premium en Perú | 4KM Producciones">
     <meta property="og:description" content="Creamos piezas cinemáticas de alta gama. Video corporativo, spots publicitarios y coberturas de eventos en Lima con calidad cinematográfica.">
-    <meta property="og:image" content="https://www.4kmproducciones.com/static/img/Logo-img.png">
+    <meta property="og:image" content="./static/img/Logo-img.png">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="4KM Producciones - Producción Audiovisual de Lujo">
@@ -33,10 +33,10 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "4KM Producciones",
-      "image": "https://www.4kmproducciones.com/static/images/logo.png",
+      "image": "https://www.4kmproducciones.com/static/img/Logo-img.png",
       "@id": "https://www.4kmproducciones.com/#organization",
       "url": "https://www.4kmproducciones.com/",
-      "telephone": "+51924130007",
+    "telephone": "+TU_NUMERO",
       "priceRange": "$$$$",
       "address": {
         "@type": "PostalAddress",
@@ -86,10 +86,15 @@
             <nav class="nav-menu" id="navMenu">
                 <ul>
                     <li><a href="#hero" class="nav-link active">Inicio</a></li>
-                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                    <li><a href="#portfolio" class="nav-link">Portafolio</a></li>
-                    <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                    <li><a href="#paquetes-sesiones" class="nav-link">Sesiones</a></li>
+                    <li><a href="#paquetes-parejas" class="nav-link">Parejas</a></li>
+                    <li><a href="#paquetes-familiar" class="nav-link">Familiar</a></li>
+                    <li><a href="#paquetes-15" class="nav-link">15 Años</a></li>
+                    <li><a href="#paquetes-graduacion" class="nav-link">Graduación</a></li>
+                    <li><a href="#paquetes-bodas" class="nav-link">Bodas</a></li>
+                    <li><a href="#paquetes-linkedin" class="nav-link">LinkedIn</a></li>
+                    <li><a href="#paquetes-embarazo" class="nav-link">Embarazo</a></li>
+                    <li><a href="#paquetes-tematicas" class="nav-link">Temáticas</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 </ul>
             </nav>
@@ -102,22 +107,372 @@
     </header>
 
     <section id="hero" class="hero-section">
-        <div class="video-background">
-            <video autoplay muted loop playsinline poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="bgVideo">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-working-with-a-stabilizer-with-a-camera-40156-large.mp4" type="video/mp4">
-            </video>
+        <div class="hero-bg-carousel" id="heroBgCarousel">
+            <div class="hero-bg-slide active" style="background-image: url('./static/img/carousel/hero-slide-1.svg');"></div>
+            <div class="hero-bg-slide" style="background-image: url('./static/img/carousel/hero-slide-2.svg');"></div>
+            <div class="hero-bg-slide" style="background-image: url('./static/img/carousel/hero-slide-3.svg');"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <span class="hero-kicker">EVENTOS, PUBLICIDAD Y DRONE</span>
             <h1 class="hero-title fade-in">Historias que trascienden</h1>
-            <p class="hero-subtitle fade-in">Estudio de producción audiovisual de alta gama para marcas líderes en el Perú.</p>
+            <p class="hero-subtitle fade-in">Estudio de producción audiovisual premium en Lima. Paquetes desde S/250 para graduaciones, drone, publicidad y redes sociales.</p>
             <div class="hero-buttons fade-in">
-                <a href="#portfolio" class="btn btn-primary">Ver Portafolio</a>
-                <a href="#contacto" class="btn btn-secondary">Iniciar Proyecto</a>
+                <a href="#paquetes" class="btn btn-primary">Ver Paquetes</a>
+                <a href="#paquetes-graduacion" class="btn btn-primary btn-grad">Graduación</a>
+                <a href="#juego" class="btn btn-secondary">Jugar en el Parque</a>
             </div>
         </div>
         <div class="scroll-indicator">
             <div class="mouse"></div>
+        </div>
+    </section>
+
+    <section id="hero-carrusel" class="section section-black">
+        <div class="container">
+            <span class="section-tagline">Imágenes de Alto Impacto</span>
+            <h2 class="section-title">Carrusel Principal</h2>
+            <div class="hero-carousel" id="heroCarousel">
+                <div class="carousel-slide active" data-index="0">
+                    <img src="./static/img/carousel/slide-1.svg" alt="Graduaciones Premium">
+                    <div class="carousel-copy">
+                        <span>Eventos de Graduación</span>
+                        <h3>Capturamos cada logro con cinematografía épica</h3>
+                        <p>Paquetes completos de vídeo, fotografías y cobertura aérea para momentos inolvidables.</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" data-index="1">
+                    <img src="./static/img/carousel/slide-2.svg" alt="Drone Filmación">
+                    <div class="carousel-copy">
+                        <span>Filmación con Drone</span>
+                        <h3>Tomas aéreas que elevan tu narración visual</h3>
+                        <p>Perspectivas profesionales con drones DJI 4K y pilotos certificados para eventos especiales.</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" data-index="2">
+                    <img src="./static/img/carousel/slide-3.svg" alt="Publicidad Premium">
+                    <div class="carousel-copy">
+                        <span>Publicidad de Alto Impacto</span>
+                        <h3>Contenido diseñado para conversiones y visibilidad</h3>
+                        <p>Videos comerciales estratégicos para redes, TV y plataformas digitales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paquetes - Sesiones de Parejas -->
+    <section id="paquetes-parejas" class="section section-dark">
+        <div class="container">
+            <span class="section-tagline">Paquetes Parejas</span>
+            <h2 class="section-title">Sesiones de Parejas</h2>
+
+            <h3 class="section-subtitle">Sesiones en Exteriores</h3>
+            <div class="package-grid">
+                <article class="package-card reveal">
+                    <h3>Estándar</h3>
+                    <span class="package-price">S/300 / Por Locación</span>
+                    <ul>
+                        <li>1 Hora de Sesión</li>
+                        <li>10 Fotografías Digitales</li>
+                        <li>2 Fotos Impresas 10×15</li>
+                        <li>1 Cuadro Impreso 10×15</li>
+                        <li>1 Collage de Foto Digital</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=TU_NUMERO&text=Hola+Mi+Nombre+Es:+Estoy+Interesad@+En+La+Sesi%C3%B3n+de+Parejas+en+Exteriores+Paquete+Est%C3%A1ndar" class="btn btn-primary">Contratar vía WhatsApp</a>
+                </article>
+                <article class="package-card reveal">
+                    <h3>Avanzado</h3>
+                    <span class="package-price">S/350 / Por Locación</span>
+                    <ul>
+                        <li>1 Hora de Sesión</li>
+                        <li>15 Fotografías Digitales</li>
+                        <li>5 Fotos Impresas 10×15</li>
+                        <li>1 Cuadro Impreso 10×15</li>
+                        <li>2 Collage de Foto Digital</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=TU_NUMERO&text=Hola+Mi+Nombre+Es:+Estoy+Interesad@+En+La+Sesi%C3%B3n+de+Parejas+en+Exteriores+Paquete+Avanzado" class="btn btn-primary">Contratar vía WhatsApp</a>
+                </article>
+                <article class="package-card reveal">
+                    <h3>Premium</h3>
+                    <span class="package-price">S/400 / Por Locación</span>
+                    <ul>
+                        <li>1 Hora de Sesión</li>
+                        <li>20 Fotografías Digitales</li>
+                        <li>7 Fotos Impresas 10×15</li>
+                        <li>2 Cuadros Impreso 10×15</li>
+                        <li>2 Collage de Foto Digital</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=TU_NUMERO&text=Hola+Mi+Nombre+Es:+Estoy+Interesad@+En+La+Sesi%C3%B3n+de+Parejas+en+Exteriores+Paquete+Premium" class="btn btn-primary">Contratar vía WhatsApp</a>
+                </article>
+            </div>
+
+            <h3 class="section-subtitle" style="margin-top:36px;">Sesiones en Estudio</h3>
+            <div class="package-grid">
+                <article class="package-card reveal">
+                    <h3>Estándar (Estudio)</h3>
+                    <span class="package-price">S/370 / Por Servicio</span>
+                    <ul>
+                        <li>1 Hora de Sesión</li>
+                        <li>10 Fotografías Digitales</li>
+                        <li>2 Fotos Impresas 10×15</li>
+                        <li>1 Cuadro Impreso 10×15</li>
+                        <li>1 Collage de Foto Digital</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=TU_NUMERO&text=Hola+Mi+Nombre+Es:+Estoy+Interesad@+En+La+Sesi%C3%B3n+de+Parejas+en+Estudio+Paquete+Est%C3%A1ndar" class="btn btn-primary">Contratar vía WhatsApp</a>
+                </article>
+                <article class="package-card reveal">
+                    <h3>Avanzado (Estudio)</h3>
+                    <span class="package-price">S/470 / Por Servicio</span>
+                    <ul>
+                        <li>1 Hora de Sesión</li>
+                        <li>15 Fotografías Digitales</li>
+                        <li>5 Fotos Impresas 10×15</li>
+                        <li>1 Cuadro Impreso 10×15</li>
+                        <li>2 Collage de Foto Digital</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=TU_NUMERO&text=Hola+Mi+Nombre+Es:+Estoy+Interesad@+En+La+Sesi%C3%B3n+de+Parejas+en+Estudio+Paquete+Avanzado" class="btn btn-primary">Contratar vía WhatsApp</a>
+                </article>
+                <article class="package-card reveal">
+                    <h3>Premium (Estudio)</h3>
+                    <span class="package-price">S/570 / Por Servicio</span>
+                    <ul>
+                        <li>1 Hora de Sesión</li>
+                        <li>20 Fotografías Digitales</li>
+                        <li>7 Fotos Impresas 10×15</li>
+                        <li>2 Cuadros Impreso 10×15</li>
+                        <li>2 Collage de Foto Digital</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send?phone=TU_NUMERO&text=Hola+Mi+Nombre+Es:+Estoy+Interesad@+En+La+Sesi%C3%B3n+de+Parejas+en+Estudio+Paquete+Premium" class="btn btn-primary">Contratar vía WhatsApp</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paquetes de Sesiones de Pareja en La Playa -->
+    <section id="paquetes-playa" class="section">
+        <div class="container">
+            <h2 class="section-title">Paquetes de Sesiones de Pareja en La Playa</h2>
+
+            <article class="package-card reveal">
+                <h3>Estándar</h3>
+                <p class="package-price">S/450/ Por Servicio</p>
+                <ul>
+                    <li><strong>1 Hora de Sesión</strong></li>
+                    <li><strong>15 Fotografías Digitales</strong></li>
+                    <li><strong>5 Fotos Impresas 10×15</strong></li>
+                    <li><strong>1 Cuadro Impreso 10×15</strong></li>
+                    <li><strong>1 Collage de Foto Digital</strong></li>
+                </ul>
+                <p><a href="https://api.whatsapp.com/send?phone=TU_NUMERO&text=Hola+Mi+Nombre+Es:+Estoy+Interesad@+En+La+Sesi%C3%B3n+de+Parejas+en+la+Playa+Paquete+Est%C3%A1ndar" class="btn btn-primary">Contratar vía WhatsApp</a></p>
+            </article>
+
+            <article class="package-card reveal">
+                <h3>Avanzado</h3>
+                <p class="package-price">S/550/ Por Locación</p>
+                <ul>
+                    <li><strong>1 Hora de Sesión</strong></li>
+                    <li><strong>20 Fotografías Digitales</strong></li>
+                    <li><strong>7 Fotos Impresas 10×15</strong></li>
+                    <li><strong>1 Cuadro Impreso 10×15</strong></li>
+                    <li><strong>2 Collage de Foto Digital</strong></li>
+                </ul>
+                <p><a href="https://api.whatsapp.com/send?phone=TU_NUMERO&text=Hola+Mi+Nombre+Es:+Estoy+Interesad@+En+La+Sesi%C3%B3n+de+Parejas+en+la+Playa+Paquete+Avanzado" class="btn btn-primary">Contratar vía WhatsApp</a></p>
+            </article>
+
+            <article class="package-card reveal">
+                <h3>Premium</h3>
+                <p class="package-price">S/650/ Por Locación</p>
+                <ul>
+                    <li><strong>2 Horas de Sesión</strong></li>
+                    <li><strong>25 Fotografías Digitales</strong></li>
+                    <li><strong>10 Fotos Impresas 10×15</strong></li>
+                    <li><strong>2 Cuadros Impreso 10×15</strong></li>
+                    <li><strong>2 Collage de Foto Digital</strong></li>
+                </ul>
+                <p><a href="https://api.whatsapp.com/send?phone=TU_NUMERO&text=Hola+Mi+Nombre+Es:+Estoy+Interesad@+En+La+Sesi%C3%B3n+de+Parejas+en+la+Playa+Paquete+Premium" class="btn btn-primary">Contratar vía WhatsApp</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section id="carrusel-cliente" class="section section-dark">
+        <div class="container">
+            <span class="section-tagline">Explora Nuestro Estilo</span>
+            <h2 class="section-title">Carrusel Interactivo</h2>
+            <div class="client-carousel" id="clientCarousel">
+                <button class="carousel-control prev" data-target="prev">◀</button>
+                <div class="client-carousel-track">
+                    <div class="client-card active" data-index="0">
+                        <img src="./static/img/packages/graduacion.svg" alt="Paquete Graduación">
+                        <div>
+                            <span>Graduación</span>
+                            <h3>Paquete de eventos por graduación</h3>
+                        </div>
+                    </div>
+                    <div class="client-card" data-index="1">
+                        <img src="./static/img/packages/drone.svg" alt="Paquete Drone">
+                        <div>
+                            <span>Drone</span>
+                            <h3>Paquetes de filmación con drone</h3>
+                        </div>
+                    </div>
+                    <div class="client-card" data-index="2">
+                        <img src="./static/img/packages/fotosession.svg" alt="Paquete Sesión de Fotos">
+                        <div>
+                            <span>Fotos</span>
+                            <h3>Paquetes de sesión de fotos</h3>
+                        </div>
+                    </div>
+                    <div class="client-card" data-index="3">
+                        <img src="./static/img/packages/publicidad.svg" alt="Paquete Publicidad">
+                        <div>
+                            <span>Publicidad</span>
+                            <h3>Paquetes de publicidad comercial</h3>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control next" data-target="next">▶</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="paquetes" class="section section-black">
+        <div class="container">
+            <span class="section-tagline">Paquetes</span>
+            <h2 class="section-title">Catálogo de Paquetes</h2>
+
+            <nav class="packages-nav">
+                <a href="./paquetes/sesiones.html" class="nav-pill">Sesiones</a>
+                <a href="./paquetes/parejas.html" class="nav-pill">Parejas</a>
+                <a href="./paquetes/familiar.html" class="nav-pill">Familiar</a>
+                <a href="./paquetes/15anos.html" class="nav-pill">15 Años</a>
+                <a href="./paquetes/graduacion.html" class="nav-pill">Graduación</a>
+                <a href="./paquetes/bodas.html" class="nav-pill">Bodas</a>
+                <a href="./paquetes/linkedin.html" class="nav-pill">LinkedIn</a>
+                <a href="./paquetes/embarazo.html" class="nav-pill">Embarazo</a>
+                <a href="./paquetes/tematicas.html" class="nav-pill">Temáticas</a>
+            </nav>
+
+            <!-- aside de números externos eliminado para producción; usar placeholder TU_NUMERO en los enlaces -->
+            <div class="package-grid">
+                <article class="package-card reveal">
+                    <h3>Graduación</h3>
+                    <span class="package-price">Desde S/250</span>
+                    <p>Video del evento, cobertura fotográfica, edición rápida y highlights para redes.</p>
+                    <p class="package-meta">Ideal para promociones escolares o universitarias con entrega en 48h.</p>
+                    <a href="https://wa.me/TU_NUMERO?text=Hola%204KM%20Producciones,%20quiero%20información%20sobre%20el%20paquete%20de%20graduación" class="btn btn-primary">Consultar por WhatsApp</a>
+                </article>
+                <article class="package-card reveal">
+                    <h3>Drone</h3>
+                    <span class="package-price">Desde S/500</span>
+                    <p>Tomas aéreas 4K, tracking y estabilización profesional para eventos, inmuebles y activaciones.</p>
+                    <p class="package-meta">Perfecto para paquetes de filmación premium y panorámicas de alto valor.</p>
+                    <a href="https://wa.me/TU_NUMERO?text=Hola%204KM%20Producciones,%20quiero%20información%20sobre%20el%20paquete%20de%20drone" class="btn btn-primary">Consultar por WhatsApp</a>
+                </article>
+                <article class="package-card reveal">
+                    <h3>Sesión de Fotos</h3>
+                    <span class="package-price">Desde S/300</span>
+                    <p>Retratos, editorial y lifestyle con dirección de arte, maquillaje y entrega digital lista para publicación.</p>
+                    <p class="package-meta">Diseñado para influencers, productos y marcas personales.</p>
+                    <a href="https://wa.me/TU_NUMERO?text=Hola%204KM%20Producciones,%20quiero%20información%20sobre%20el%20paquete%20de%20fotos" class="btn btn-primary">Consultar por WhatsApp</a>
+                </article>
+                <article class="package-card reveal">
+                    <h3>Publicidad</h3>
+                    <span class="package-price">Desde S/450</span>
+                    <p>Spots comerciales, anuncios para redes y videos cortos con guion estratégico.</p>
+                    <p class="package-meta">Incluye un plan de distribución para maximizar alcance y conversiones.</p>
+                    <a href="https://wa.me/TU_NUMERO?text=Hola%204KM%20Producciones,%20quiero%20información%20sobre%20el%20paquete%20de%20publicidad" class="btn btn-primary">Consultar por WhatsApp</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="ruleta" class="section section-black">
+        <div class="container">
+            <span class="section-tagline">Promociones y Sorteos</span>
+            <h2 class="section-title">Ruleta de Premios 4KM</h2>
+            <p class="section-description max-w-768">
+                Gira la ruleta solo si has obtenido un código válido desde el juego o con un servicio de filmación. Cada código desbloquea la ruleta y permite competir por premios reales.
+            </p>
+            <div class="wheel-game reveal">
+                <div class="wheel-container">
+                    <div class="wheel" id="prizeWheel">
+                        <span class="wheel-marker">▶</span>
+                    </div>
+                    <button class="btn btn-primary wheel-spin-btn" id="spinWheelBtn" disabled>Girar la Ruleta</button>
+                </div>
+                <div class="wheel-result" id="wheelResult">Ingresa un código válido para desbloquear el giro.</div>
+                <div class="wheel-code-panel">
+                    <label for="wheelCodeInput">Código de Ruleta</label>
+                    <input id="wheelCodeInput" type="text" placeholder="Ejemplo: 4KMSERVICE" aria-label="Código de ruleta">
+                    <button id="verifyCodeBtn" class="btn btn-secondary">Verificar Código</button>
+                    <p id="wheelCodeMessage" class="wheel-code-message">Obtén tu código al completar el juego del parque o al contratar un servicio.</p>
+                </div>
+                <div class="wheel-prices">
+                    <div class="wheel-info-card">
+                        <h3>Premios</h3>
+                        <p>Gorras oficiales, polos 4KM y descuentos por servicio.</p>
+                    </div>
+                    <div class="wheel-info-card">
+                        <h3>Descuento 10%</h3>
+                        <p>Aplica en servicios mayores a S/500. También puedes ganar ofertas especiales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inspiracion" class="section section-grey">
+        <div class="container">
+            <span class="section-tagline">Inspiración Global</span>
+            <h2 class="section-title">Referencias de páginas grandes del sector</h2>
+            <div class="inspo-grid reveal">
+                <article class="inspo-card">
+                    <h3>Diseño y narrativa</h3>
+                    <p>Las grandes webs de producción usan secuencias claras, video de fondo, llamadas a la acción y casos de éxito visibles desde el primer scroll.</p>
+                </article>
+                <article class="inspo-card">
+                    <h3>Experiencias interactivas</h3>
+                    <p>Sites similares a este integran mini-juegos, secciones de premios y mecánicas de búsqueda para aumentar el engagement y la conversión.</p>
+                </article>
+                <article class="inspo-card">
+                    <h3>Conversiones directas</h3>
+                    <p>Las páginas top facilitan el contacto inmediato por WhatsApp, reservando espacios directos para presupuestos y cotizaciones.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="social" class="section section-dark">
+        <div class="container">
+            <span class="section-tagline">Redes Sociales</span>
+            <h2 class="section-title">Publica con Nosotros</h2>
+            <p class="section-description max-w-768">
+                Comparte tu comentario o idea y nosotros la transformamos en contenido visual para Instagram, Facebook, TikTok o YouTube.
+            </p>
+            <div class="social-grid reveal">
+                <div class="social-card">
+                    <h3>Publicación en Redes</h3>
+                    <p>Envíanos cualquier comentario o brief y te devolvemos un plan visual completo para tu campaña social.</p>
+                </div>
+                <div class="social-card">
+                    <h3>Gestión de Contenido</h3>
+                    <p>Contenido adaptado a cada plataforma, con copy, edición y formato de alto engagement.</p>
+                </div>
+                <div class="social-card">
+                    <h3>Contacto Directo</h3>
+                    <p>Todo paquete está vinculado a WhatsApp para cotización instantánea y atención personalizada.</p>
+                </div>
+            </div>
+            <div class="social-form reveal">
+                <label for="socialComment">Escribe tu comentario o idea para publicación</label>
+                <textarea id="socialComment" placeholder="Comparte tu brief, slogan o mensaje clave"></textarea>
+                <button id="socialSubmitBtn" class="btn btn-primary">Enviar comentario por WhatsApp</button>
+                <p id="socialNotice" class="form-response-msg"></p>
+            </div>
+            <div class="social-actions">
+                <a href="https://wa.me/TU_NUMERO?text=Hola%204KM%20Producciones,%20quiero%20publicar%20una%20idea%20en%20redes" class="btn btn-primary">Enviar comentario por WhatsApp</a>
+            </div>
         </div>
     </section>
 
@@ -356,6 +711,52 @@
                         <button type="submit" class="btn btn-primary w-full" id="submitBtn">Enviar Solicitud de Brief</button>
                         <div id="formResponse" class="form-response-msg"></div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="juego" class="section section-light">
+        <div class="container">
+            <span class="section-tagline">Juego Final</span>
+            <h2 class="section-title">Juega en el parque y gana un código</h2>
+            <p class="section-description max-w-768">Mueve al camarógrafo por el tablero del parque, encuentra los cargadores y consigue un código exclusivo para girar la ruleta.</p>
+            <div class="park-game reveal">
+                <div class="park-info">
+                    <h3>Objetivo del Juego</h3>
+                    <p>Busca los 5 cargadores escondidos en el parque. Cada vez que encuentres uno, recibirás un pequeño descuento y, al completar el juego, obtendrás un código para usar en la ruleta.</p>
+                    <div class="game-status-panel">
+                        <div class="game-stats-row">
+                            <span>Cargadores encontrados</span>
+                            <strong id="chargersFound">0</strong>/5
+                        </div>
+                        <div class="game-stats-row">
+                            <span>Movimientos</span>
+                            <strong id="movesCount">0</strong>
+                        </div>
+                    </div>
+                    <div class="game-action-panel">
+                        <button id="startGameBtn" class="btn btn-primary">Iniciar Juego</button>
+                        <button id="resetGameBtn" class="btn btn-secondary">Reiniciar</button>
+                    </div>
+                    <p class="game-result" id="gameStatus">Presiona Iniciar para comenzar a buscar cargadores.</p>
+                    <div class="game-code-panel">
+                        <h3>Código desbloqueado</h3>
+                        <p id="gameCodeMessage">Completa el juego para recibir tu código de ruleta.</p>
+                        <p><strong>Código generado:</strong> <span id="generatedGameCode">—</span></p>
+                        <p>Si contratas un servicio de filmación también podrás usar el código <strong>4KMSERVICE</strong> para desbloquear la ruleta.</p>
+                    </div>
+                </div>
+                <div class="park-arena">
+                    <div class="game-board" id="parkBoard" aria-label="Tablero de juego del parque"></div>
+                    <div class="game-controls">
+                        <button class="btn btn-secondary arrow-btn" data-dir="up">↑</button>
+                        <div class="controls-row">
+                            <button class="btn btn-secondary arrow-btn" data-dir="left">←</button>
+                            <button class="btn btn-secondary arrow-btn" data-dir="down">↓</button>
+                            <button class="btn btn-secondary arrow-btn" data-dir="right">→</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

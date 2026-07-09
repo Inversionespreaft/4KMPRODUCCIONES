@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#070707"/>
+  <text x="40" y="120" font-family="Inter, sans-serif" font-size="48" fill="#D4AF37">Drone</text>
+  <text x="40" y="190" font-family="Inter, sans-serif" font-size="26" fill="#FFF">Tomas aéreas profesionales para eventos y marcas.</text>
+  <circle cx="640" cy="320" r="90" fill="rgba(212,175,55,0.15)"/>
+  <text x="60" y="420" font-family="Cormorant Garamond, serif" font-size="24" fill="#DDD">Pilotos certificados DGAC y cámaras 4K DJI.</text>
+</svg>

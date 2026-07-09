@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#0B0B0B"/>
+  <text x="40" y="120" font-family="Inter, sans-serif" font-size="48" fill="#D4AF37">Publicidad</text>
+  <text x="40" y="190" font-family="Inter, sans-serif" font-size="26" fill="#FFF">Campañas visuales para medios digitales y broadcast.</text>
+  <rect x="50" y="240" width="700" height="170" rx="18" fill="rgba(212,175,55,0.1)"/>
+  <text x="60" y="340" font-family="Cormorant Garamond, serif" font-size="28" fill="#FFF">Estrategia creativa + producción premium para altos retornos.</text>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#111"/>
+  <rect x="0" y="0" width="1200" height="700" fill="url(#grad)" opacity="0.55"/>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#0B0B0B"/>
+    </linearGradient>
+  </defs>
+  <text x="50" y="120" font-family="Inter, sans-serif" font-size="56" fill="#FFF">Graduaciones Premium</text>
+  <text x="50" y="200" font-family="Inter, sans-serif" font-size="32" fill="#FFF">Capturamos cada momento con elegancia y cinematografía aérea.</text>
+  <circle cx="1060" cy="550" r="120" fill="rgba(255,255,255,0.08)"/>
+  <text x="50" y="620" font-family="Cormorant Garamond, serif" font-size="26" fill="#DDD">Paquete especial para eventos de graduación.</text>
+</svg>

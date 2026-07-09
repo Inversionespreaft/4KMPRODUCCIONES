@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#090909"/>
+  <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#111"/>
+    <stop offset="100%" stop-color="#220011"/>
+  </linearGradient>
+  <rect x="0" y="0" width="1200" height="700" fill="url(#g3)"/>
+  <text x="50" y="120" font-family="Inter, sans-serif" font-size="56" fill="#FFF">Publicidad & Producción</text>
+  <text x="50" y="200" font-family="Inter, sans-serif" font-size="32" fill="#D4AF37">Contenido impactante para redes, streaming y campañas comerciales.</text>
+  <circle cx="1040" cy="400" r="130" fill="rgba(212,175,55,0.14)"/>
+  <text x="60" y="660" font-family="Cormorant Garamond, serif" font-size="24" fill="#DDD">Estrategia audiovisual premium para tu marca.</text>
+</svg>

@@ -1,0 +1,46 @@
+{% extends 'Layouts/base.html' %}
+
+{% block title %}{{ category.title }} | 4KM Producciones{% endblock %}
+
+{% block content %}
+<section class="category-hero">
+    <div class="container">
+        <span class="section-tagline">Paquetes Especializados</span>
+        <h1>{{ category.title }}</h1>
+        <p class="section-copy">{{ category.subtitle }}</p>
+    </div>
+</section>
+
+<section class="package-listing">
+    <div class="container">
+        <div class="package-accordion-stack">
+            {% for pack in category.packages %}
+            <details class="package-accordion reveal">
+                <summary>
+                    <div>
+                        <h3>{{ pack.name }}</h3>
+                        <p>{{ pack.description }}</p>
+                    </div>
+                    <span class="package-price">{{ pack.price }}</span>
+                </summary>
+                <div class="package-accordion-body">
+                    <ul class="package-features">
+                        {% for feature in pack.features %}
+                        <li>{{ feature }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="package-actions">
+                        <a href="/paquetes/{{ slug }}/{{ pack.slug }}" class="btn btn-secondary">Ver detalle</a>
+                        <a href="https://api.whatsapp.com/send?phone={{ category.whatsapp }}&text={{ pack.whatsapp_message }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contratar vía WhatsApp</a>
+                    </div>
+                </div>
+            </details>
+            {% endfor %}
+        </div>
+        <div class="category-actions">
+            <a href="/paquetes" class="btn btn-secondary">Ver todas las categorías</a>
+            <a href="/" class="btn btn-outline">Volver al inicio</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'Layouts/base.html' %}
+
+{% block title %}Paquetes | 4KM Producciones{% endblock %}
+
+{% block content %}
+<section class="category-hero">
+    <div class="container">
+        <span class="section-tagline">Paquetes Especializados</span>
+        <h1>Elige tu categoría de producción</h1>
+        <p class="section-copy">Navega entre nuestras categorías y accede a paquetes claros para parejas, familiares, bodas, graduaciones, LinkedIn, embarazo y temáticas.</p>
+    </div>
+</section>
+
+<section class="category-listing">
+    <div class="container">
+        <div class="category-grid">
+            {% for slug, category in categories.items() %}
+            <article class="category-card reveal">
+                <h3>{{ category.title }}</h3>
+                <p>{{ category.teaser }}</p>
+                <a href="/paquetes/{{ slug }}" class="btn btn-primary">Ver {{ category.title }}</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

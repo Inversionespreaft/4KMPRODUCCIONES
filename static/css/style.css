@@ -60,6 +60,7 @@ a {
 .section {
     padding: 140px 0;
     position: relative;
+    scroll-margin-top: 120px;
 }
 
 .section-dark { background-color: var(--bg-dark-grey); }
@@ -310,6 +311,393 @@ a {
     gap: 20px;
 }
 
+.hero-bg-carousel {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+.hero-bg-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+.hero-bg-slide.active {
+    opacity: 1;
+}
+
+/* Ajuste del hero y carruseles para ocupar la altura de la sección y recortar imágenes correctamente */
+.hero-section { height: 80vh; min-height: 520px; position: relative; }
+.hero-bg-slide { background-size: cover; background-position: center; }
+
+/* Client carousel / portfolio carousel */
+.client-carousel { display:flex; align-items:center; gap:12px; }
+.client-carousel .client-carousel-track { display:flex; gap:16px; overflow-x:auto; padding:8px 0; }
+.client-carousel .client-card { min-width: 320px; width: 320px; background: var(--bg-dark-grey); border:1px solid rgba(255,255,255,0.06); padding:16px; display:flex; gap:12px; align-items:center; }
+.client-card img { width: 120px; height: 80px; object-fit:cover; border-radius:6px; }
+.client-card div { flex:1; }
+
+.hero-kicker {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.wheel-game {
+    display: grid;
+    gap: 32px;
+    justify-items: center;
+    margin-top: 40px;
+}
+.wheel-container {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.wheel {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 12px solid rgba(255,255,255,0.12);
+    background: conic-gradient(
+        #D4AF37 0deg 45deg,
+        #111 45deg 90deg,
+        #D4AF37 90deg 135deg,
+        #111 135deg 180deg,
+        #D4AF37 180deg 225deg,
+        #111 225deg 270deg,
+        #D4AF37 270deg 315deg,
+        #111 315deg 360deg
+    );
+    position: relative;
+    transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.wheel-marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    color: var(--gold);
+    font-size: 2rem;
+    z-index: 2;
+}
+.wheel-spin-btn {
+    min-width: 220px;
+    margin-top: 20px;
+}
+.wheel-result {
+    max-width: 760px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--white);
+}
+.wheel-prices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 920px;
+}
+.wheel-info-card {
+    background: var(--bg-dark-grey);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 28px;
+}
+.wheel-info-card h3 {
+    margin-bottom: 14px;
+}
+.wheel-info-card p {
+    color: var(--muted-white);
+    line-height: 1.8;
+}
+/* Paquetes: mostrar tarjetas en fila horizontal */
+.package-grid, .package-listing .package-grid {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 18px;
+}
+.package-grid::-webkit-scrollbar, .package-listing .package-grid::-webkit-scrollbar { height: 10px; }
+.package-grid::-webkit-scrollbar-thumb, .package-listing .package-grid::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 8px; }
+
+.package-card {
+    background: var(--bg-dark-grey);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 22px;
+    min-width: 320px;
+    flex: 0 0 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+}
+.package-card h3 { margin-bottom: 8px; }
+.package-card p { color: var(--muted-white); margin-bottom: 12px; }
+.package-features { margin: 12px 0 18px 0; color: var(--muted-white); }
+.package-actions { display: flex; gap: 12px; }
+
+/* Tarjeta destacada (premium) */
+.highlight-card {
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 30px rgba(212,175,55,0.08);
+    transform: translateY(-4px);
+}
+
+.package-card h3 { font-size: 1.15rem; }
+.package-price {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.package-meta {
+    color: var(--muted-white);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+.game-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1.6fr 1fr;
+    align-items: start;
+    margin-top: 30px;
+}
+.game-story {
+    padding: 28px 0;
+}
+.game-story ul {
+    list-style: disc;
+    margin: 20px 0;
+    padding-left: 18px;
+}
+.game-story li {
+    margin-bottom: 12px;
+}
+.game-card {
+    background: var(--bg-dark-grey);
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.game-card-image {
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+}
+.game-card-body {
+    padding: 24px;
+}
+.game-card-body h3 {
+    margin-bottom: 18px;
+}
+.game-stats {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+    color: var(--muted-white);
+}
+
+.park-game {
+    display: grid;
+    grid-template-columns: 420px minmax(320px, 1fr);
+    gap: 30px;
+    align-items: flex-start;
+}
+.park-info {
+    display: grid;
+    gap: 20px;
+}
+.park-character-img {
+    width: 100%;
+    max-width: 380px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    padding: 18px;
+}
+.game-status-panel {
+    display: grid;
+    gap: 14px;
+    padding: 22px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.game-stats-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+.game-action-panel {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.game-result {
+    padding: 22px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    min-height: 90px;
+    line-height: 1.7;
+}
+.park-arena {
+    display: grid;
+    gap: 18px;
+    justify-items: center;
+}
+.game-board {
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 10 / 6;
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+    gap: 2px;
+    padding: 10px;
+    background: #163c1f;
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    border: 2px solid rgba(255,255,255,0.16);
+    border-radius: 20px;
+    position: relative;
+}
+.park-cell {
+    border-radius: 10px;
+    background: #2f7b35;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+.park-cell.player {
+    background: linear-gradient(145deg, #ffd662, #f7a53b);
+    box-shadow: 0 0 16px rgba(255,215,0,0.45);
+}
+.park-cell.player::after {
+    content: '📷';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+}
+.park-cell.charger {
+    background: #f5d34d;
+    animation: pulse 1.4s infinite ease-in-out;
+}
+.park-cell.charger::after {
+    content: '🔋';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+}
+.park-cell.obstacle {
+    background: #6b2f1d;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2);
+}
+.park-cell.obstacle::after {
+    content: '🌳';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+.game-controls {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+    max-width: 420px;
+}
+.controls-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+.arrow-btn {
+    width: 76px;
+    height: 66px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-radius: 4px;
+}
+
+.wheel-code-panel {
+    margin-top: 24px;
+    display: grid;
+    gap: 16px;
+    max-width: 560px;
+}
+.wheel-code-panel label {
+    font-size: 0.95rem;
+    color: var(--muted-white);
+}
+.wheel-code-panel input {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    font-size: 0.95rem;
+}
+.wheel-code-panel button {
+    width: fit-content;
+}
+.wheel-code-message {
+    color: var(--muted-white);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 980px) {
+    .park-game {
+        grid-template-columns: 1fr;
+    }
+    .park-arena {
+        width: 100%;
+    }
+    .package-listing .package-grid { gap: 16px; }
+    .package-card { min-width: 280px; flex: 0 0 300px; }
+}
+
+.inspo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+.inspo-card {
+    background: var(--bg-dark-grey);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 28px;
+}
+.inspo-card h3 {
+    margin-bottom: 14px;
+}
+
 /* Indicador de Scroll Animado */
 .scroll-indicator {
     position: absolute;
@@ -417,6 +805,100 @@ a {
     font-size: 0.95rem;
     line-height: 1.6;
     font-weight: 300;
+}
+
+.service-card-visual {
+    min-height: 320px;
+    position: relative;
+    overflow: hidden;
+    background-image: var(--service-bg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.service-card-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11,11,11,0.18) 0%, rgba(11,11,11,0.86) 100%);
+    z-index: 0;
+}
+
+.service-card-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.service-card-visual h3,
+.service-card-visual p,
+.service-card-visual .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.service-card-visual .btn {
+    margin-top: 8px;
+}
+
+/* Acordeones de Paquetes */
+.package-accordion-stack {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.package-accordion {
+    border: 1px solid var(--border-grey);
+    background: rgba(255,255,255,0.03);
+    padding: 0 20px;
+    transition: var(--transition-smooth);
+}
+
+.package-accordion[open] {
+    border-color: var(--gold);
+    background: rgba(212,175,55,0.08);
+}
+
+.package-accordion summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0;
+    cursor: pointer;
+}
+
+.package-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.package-accordion h3 {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.package-accordion p {
+    color: var(--muted-white);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.package-accordion-body {
+    padding: 0 0 22px 0;
+}
+
+.package-accordion-body .package-features {
+    margin-bottom: 20px;
 }
 
 /* Portfolio Filtrable UI */
@@ -767,7 +1249,217 @@ a {
     transform: translateY(0);
 }
 
-/* Responsivo Móvil y Tablet */
+/* Carrusel y Paquetes */
+.hero-carousel {
+    position: relative;
+    overflow: hidden;
+    height: 620px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, rgba(11,11,11,0.95) 0%, rgba(11,11,11,0.85) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+.carousel-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.carousel-slide img {
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+.carousel-copy {
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 620px;
+    z-index: 2;
+    color: var(--white);
+}
+.carousel-copy span {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.carousel-copy h3 {
+    font-size: 3rem;
+    margin-bottom: 18px;
+}
+.carousel-copy p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    max-width: 550px;
+}
+.client-carousel {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+.client-carousel-track {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+    flex: 1;
+}
+.client-card {
+    min-width: 280px;
+    background: var(--bg-dark-grey);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 24px;
+    display: grid;
+    gap: 18px;
+    scroll-snap-align: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.client-card.active, .client-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+.client-card img {
+    width: 100%;
+    border-radius: 16px;
+    min-height: 220px;
+    object-fit: cover;
+}
+.client-card span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+.client-card h3 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    line-height: 1.3;
+}
+.carousel-control {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    width: 54px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.carousel-control:hover {
+    background: rgba(212,175,55,0.18);
+}
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+}
+
+/* For sections that should show cards horizontally (scroll on small screens) */
+.package-grid.horizontal {
+    display: flex !important;
+    gap: 24px;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+.package-grid.horizontal .package-card {
+    flex: 0 0 340px;
+    min-width: 320px;
+}
+.package-card {
+    background-color: var(--bg-dark-grey);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 40px 30px;
+    transition: var(--transition-smooth);
+}
+.package-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+}
+.package-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+}
+.package-card p {
+    color: var(--muted-white);
+    line-height: 1.8;
+    margin-bottom: 26px;
+}
+.social-form {
+    margin-top: 40px;
+    display: grid;
+    gap: 20px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.social-form label {
+    font-size: 0.95rem;
+    color: var(--muted-white);
+}
+.social-form textarea {
+    width: 100%;
+    min-height: 140px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--white);
+    padding: 20px;
+    resize: vertical;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+}
+.social-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+.social-card {
+    background: var(--bg-dark-grey);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 30px;
+    transition: var(--transition-smooth);
+}
+.social-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+.social-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+}
+.social-card p {
+    color: var(--muted-white);
+    line-height: 1.8;
+}
 @media(max-width: 1024px) {
     .services-grid, .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-grid { grid-template-columns: 1fr; gap: 60px; }

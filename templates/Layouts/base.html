@@ -14,12 +14,13 @@
     <meta property="og:url" content="{{ request.url }}">
     <meta property="og:title" content="4KM Producciones | Producción Audiovisual Premium en Perú">
     <meta property="og:description" content="Especialistas en videos corporativos, comerciales y contenido de alta gama. Historias que trascienden.">
-    <meta property="og:image" content="{{ url_for('static', filename='images/og-share.jpg') }}">
+    <meta property="og:image" content="{{ url_for('static', filename='img/Logo-img.png') }}">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="4KM Producciones | Historias que trascienden">
     <meta property="twitter:description" content="Estudio de producción audiovisual cinematográfica en Lima, Perú.">
 
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/ICONOPAGE.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -31,7 +32,7 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "4KM Producciones",
-      "image": "https://www.4kmproducciones.com/static/images/logo.png",
+      "image": "{{ url_for('static', filename='img/Logo-img.png') }}",
       "@id": "https://www.4kmproducciones.com/#organization",
       "url": "https://www.4kmproducciones.com/",
       "telephone": "+5192413007",

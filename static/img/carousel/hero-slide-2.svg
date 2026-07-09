@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111"/>
+      <stop offset="100%" stop-color="#171717"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#grad2)"/>
+  <circle cx="450" cy="220" r="220" fill="rgba(212,175,55,0.08)"/>
+  <text x="120" y="260" font-family="Cormorant Garamond, serif" font-size="64" fill="#D4AF37">Drone</text>
+  <text x="120" y="340" font-family="Inter, sans-serif" font-size="32" fill="#FFF">Tomas aéreas 4K para eventos y marcas.</text>
+  <text x="120" y="420" font-family="Inter, sans-serif" font-size="24" fill="#DDD">Paquetes desde S/500.</text>
+</svg>
