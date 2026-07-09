@@ -1,6 +1,6 @@
 import os
 import re
-from flask import Flask, render_template, request, jsonify, flash, redirect, url_for
+from flask import Flask, render_template, request, jsonify, flash, redirect, url_for, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
@@ -50,7 +50,7 @@ def es_valido(texto):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_file('index.html')
 
 @app.route('/api/contacto', methods=['POST'])
 def contacto():
