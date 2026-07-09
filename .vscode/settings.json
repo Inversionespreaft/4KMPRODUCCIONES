@@ -1,3 +1,7 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "files.autoSave": "afterDelay",
+    "python.analysis.typeCheckingMode": "basic"
 }

@@ -154,17 +154,35 @@ a {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 24px 40px;
+    padding: 20px 40px;
     transition: var(--transition-smooth);
 }
 
 .main-header.scrolled .header-container {
-    padding: 16px 40px;
+    padding: 12px 40px;
 }
 
 .logo {
-    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    height: 70px;
     color: var(--white);
+    flex-shrink: 0;
+}
+
+.logo-img {
+    height: 70px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+}
+
+.main-header.scrolled .logo {
+    height: 60px;
+}
+
+.main-header.scrolled .logo-img {
+    height: 60px;
 }
 
 .logo span {
@@ -853,6 +871,25 @@ a {
 
 /* Ajuste Mobile para el Mega Menú Drawer */
 @media(max-width: 768px) {
+    .header-container {
+        padding: 12px 20px;
+    }
+    .main-header.scrolled .header-container {
+        padding: 10px 20px;
+    }
+    .logo {
+        height: 50px;
+    }
+    .logo-img {
+        height: 50px;
+        max-width: 150px;
+    }
+    .main-header.scrolled .logo {
+        height: 50px;
+    }
+    .main-header.scrolled .logo-img {
+        height: 50px;
+    }
     .mega-menu-drawer {
         position: static;
         opacity: 1;
