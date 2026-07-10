@@ -4,7 +4,7 @@ web_bp = Blueprint('web', __name__)
 
 @web_bp.route('/')
 def index():
-    # Renderiza la Home con las secciones del embudo AIDA
+    # Se usa la página principal del proyecto que el cliente indicó como activa
     return render_template('index.html')
 
 @web_bp.route('/nosotros')

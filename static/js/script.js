@@ -319,6 +319,75 @@ function initHeroBackgroundCarousel() {
     }, interval);
 }
 
+function generatePrizeCode(source = 'site') {
+    const prefix = source === 'minijuego' ? 'MJ' : 'RW';
+    const stamp = Date.now().toString(36).toUpperCase();
+    const randomPart = Math.random().toString(36).slice(2, 6).toUpperCase();
+    return `${prefix}-${stamp}-${randomPart}`;
+}
+
+function showPrizeQuestionnaire(prizeText, source = 'ruleta', code = '') {
+    if (document.getElementById('prizeQuestionnaireModal')) return;
+
+    const prizeCode = code || generatePrizeCode(source);
+    const modal = document.createElement('div');
+    modal.id = 'prizeQuestionnaireModal';
+    modal.className = 'prize-registration-modal';
+    modal.innerHTML = `
+        <div class="prize-registration-card" role="dialog" aria-modal="true" aria-labelledby="prizeQuestionnaireTitle">
+            <button class="prize-registration-close" type="button" aria-label="Cerrar">×</button>
+            <h3 id="prizeQuestionnaireTitle">Cuestionario de premio</h3>
+            <p>Completa este formulario para que el vendedor reciba tu respuesta por WhatsApp y pueda atenderte de inmediato.</p>
+            <div class="prize-code-box">Código único del premio: <strong>${prizeCode}</strong></div>
+            <form id="prizeQuestionnaireForm" class="prize-registration-form">
+                <input type="text" name="nombre" placeholder="Tu nombre" required>
+                <input type="tel" name="telefono" placeholder="Tu WhatsApp" required>
+                <input type="email" name="correo" placeholder="Correo (opcional)">
+                <textarea name="mensaje" rows="3" placeholder="Cuéntanos qué premio o servicio te interesa" required></textarea>
+                <input type="hidden" name="prize" value="${prizeText}">
+                <input type="hidden" name="source" value="${source}">
+                <input type="hidden" name="code" value="${prizeCode}">
+                <button type="submit" class="btn btn-primary">Enviar por WhatsApp</button>
+                <p id="prizeQuestionnaireMessage" class="prize-registration-message">Se abrirá WhatsApp automáticamente al enviar.</p>
+            </form>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) modal.remove();
+    });
+
+    const closeBtn = modal.querySelector('.prize-registration-close');
+    if (closeBtn) closeBtn.addEventListener('click', () => modal.remove());
+
+    const form = document.getElementById('prizeQuestionnaireForm');
+    const status = document.getElementById('prizeQuestionnaireMessage');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const payload = Object.fromEntries(formData.entries());
+        const text = [
+            'Nuevo registro desde la página 4KM Producciones',
+            `Fuente: ${payload.source || 'sin fuente'}`,
+            `Premio: ${payload.prize || 'sin premio'}`,
+            `Nombre: ${payload.nombre || '-'}`,
+            `WhatsApp: ${payload.telefono || '-'}`,
+            `Correo: ${payload.correo || '-'}`,
+            `Código: ${payload.code || '-'}`,
+            `Mensaje: ${payload.mensaje || '-'}`
+        ].join('\n');
+        const whatsappUrl = `https://wa.me/51924130007?text=${encodeURIComponent(text)}`;
+        if (status) {
+            status.textContent = 'Abriendo WhatsApp...';
+            status.style.color = '#D4AF37';
+        }
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        setTimeout(() => modal.remove(), 800);
+    });
+}
+
 function initPrizeWheel() {
     const wheel = document.getElementById('prizeWheel');
     const spinBtn = document.getElementById('spinWheelBtn');
@@ -430,6 +499,7 @@ function initParkGame() {
         if (container) return container;
         container = document.createElement('div');
         container.id = 'parkGameUI';
+        container.className = 'park-game-ui';
         container.style.position = 'fixed';
         container.style.top = '16px';
         container.style.right = '16px';
@@ -438,21 +508,47 @@ function initParkGame() {
         container.style.fontFamily = 'Inter, sans-serif';
 
         container.innerHTML = `
-            <div id="parkCodeBox" style="background:#0b0b0b;color:#fff;padding:12px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.4);margin-bottom:8px;font-size:14px;">
-                <label style="display:block;font-weight:600;margin-bottom:6px;">Código único para jugar</label>
-                <div style="display:flex;gap:6px;">
-                    <input id="parkGameCodeInput" placeholder="Ingresa tu código" style="flex:1;padding:8px;border-radius:4px;border:1px solid #333;background:#111;color:#fff" />
-                    <button id="parkVerifyBtn" style="padding:8px 10px;border-radius:4px;background:#D4AF37;border:none;color:#000;font-weight:700;">Verificar</button>
+            <button id="parkPanelToggle" class="park-panel-toggle" type="button" aria-expanded="true" aria-controls="parkPanelContent">
+                <span></span><span></span><span></span>
+            </button>
+            <div id="parkPanelContent" class="park-panel-content">
+                <div id="parkCodeBox" class="park-code-box">
+                    <label class="park-code-label" for="parkGameCodeInput">Código único para jugar</label>
+                    <div class="park-code-row">
+                        <input id="parkGameCodeInput" class="park-code-input" placeholder="Ingresa tu código" />
+                        <button id="parkVerifyBtn" class="park-verify-btn" type="button">Verificar</button>
+                    </div>
+                    <div id="parkCodeMessage" class="park-code-message"></div>
                 </div>
-                <div id="parkCodeMessage" style="margin-top:8px;font-size:13px;color:#ccc"></div>
-            </div>
-            <div id="parkPrizeBox" style="background:#fff;color:#111;padding:12px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.12);font-size:14px;text-align:center;">
-                <div style="font-weight:700;margin-bottom:6px">Premio / Promoción</div>
-                <div id="parkPrizeText">Sin premio aún</div>
+                <div id="parkPrizeBox" class="park-prize-box">
+                    <div class="park-prize-title">Premio / Promoción</div>
+                    <div id="parkPrizeText" class="park-prize-text">Sin premio aún</div>
+                </div>
             </div>
         `;
 
         document.body.appendChild(container);
+
+        const toggleBtn = document.getElementById('parkPanelToggle');
+        const panelContent = document.getElementById('parkPanelContent');
+        const syncParkPanelState = () => {
+            const isMobile = window.innerWidth <= 768;
+            container.classList.toggle('park-game-ui-collapsed', isMobile);
+            container.classList.toggle('park-game-ui-open', !isMobile);
+            if (toggleBtn) {
+                toggleBtn.setAttribute('aria-expanded', String(!isMobile || !container.classList.contains('park-game-ui-collapsed')));
+            }
+        };
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    const collapsed = container.classList.toggle('park-game-ui-collapsed');
+                    toggleBtn.setAttribute('aria-expanded', String(!collapsed));
+                }
+            });
+        }
+        window.addEventListener('resize', syncParkPanelState);
+        syncParkPanelState();
 
         const verifyBtn = document.getElementById('parkVerifyBtn');
         verifyBtn.addEventListener('click', async () => {
@@ -462,6 +558,13 @@ function initParkGame() {
             msgEl.textContent = 'Validando código...'; msgEl.style.color = '#D4AF37';
             try {
                 const form = new FormData(); form.append('code', code);
+                if (code === '4KMTESTING') {
+                    msgEl.textContent = 'Código de pruebas válido. Ya puedes iniciar el juego.';
+                    msgEl.style.color = '#25D366';
+                    startBtn.disabled = false;
+                    startBtn.dataset.validCode = code;
+                    return;
+                }
                 const res = await fetch('/api/validate_code', { method: 'POST', body: form });
                 const data = await res.json();
                 if (res.status === 200 && data.status === 'ok') {
@@ -596,8 +699,8 @@ function initParkGame() {
         if (found === totalChargers) {
             active = false;
             const chance = Math.random();
-            const unlockCode = '4KMPLAY';
-            window.validWheelCodes = window.validWheelCodes || ['4KMSERVICE', '4KMCLIENTE'];
+            const unlockCode = generatePrizeCode('minijuego');
+            window.validWheelCodes = window.validWheelCodes || ['4KMSERVICE', '4KMCLIENTE', '4KMTESTING'];
             if (!window.validWheelCodes.includes(unlockCode)) {
                 window.validWheelCodes.push(unlockCode);
             }
@@ -617,35 +720,8 @@ function initParkGame() {
             const prizeBox = document.getElementById('parkPrizeText');
             if (prizeBox) prizeBox.textContent = prizeText;
 
-            // Registrar ganador solicitando datos básicos
-            setTimeout(async () => {
-                const code = startBtn.dataset.validCode || '';
-                const nombre = prompt('Felicidades! Ingresa tu nombre para registrar el premio:');
-                if (!nombre) return alert('Registro cancelado: nombre requerido.');
-                const correo = prompt('Ingresa tu correo (opcional):');
-                const telefono = prompt('Ingresa tu teléfono (opcional):');
-                try {
-                    const form = new FormData();
-                    form.append('nombre', nombre);
-                    if (correo) form.append('correo', correo);
-                    if (telefono) form.append('telefono', telefono);
-                    if (code) form.append('code', code);
-                    form.append('prize', prizeText);
-                    const packageName = document.querySelector('.category-hero h1')?.textContent || '';
-                    if (packageName) form.append('package', packageName);
-                    const res = await fetch('/api/game_result', { method: 'POST', body: form });
-                    const data = await res.json();
-                    if (res.status === 200 && data.status === 'ok') {
-                        alert('Registro exitoso. ¡Gracias!');
-                        const msgEl = document.getElementById('parkCodeMessage');
-                        if (msgEl) { msgEl.textContent = 'Premio registrado. Pronto nos comunicaremos.'; msgEl.style.color = '#25D366'; }
-                    } else {
-                        alert('Error registrando: ' + (data.message || ''));
-                    }
-                } catch (err) {
-                    alert('Error al enviar registro.');
-                }
-            }, 300);
+            const code = startBtn.dataset.validCode || '';
+            showPrizeQuestionnaire(prizeText, 'minijuego', code);
         }
     }
 

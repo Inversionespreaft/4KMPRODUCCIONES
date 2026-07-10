@@ -86,15 +86,24 @@
             <nav class="nav-menu" id="navMenu">
                 <ul>
                     <li><a href="#hero" class="nav-link active">Inicio</a></li>
-                    <li><a href="#paquetes-sesiones" class="nav-link">Sesiones</a></li>
-                    <li><a href="#paquetes-parejas" class="nav-link">Parejas</a></li>
-                    <li><a href="#paquetes-familiar" class="nav-link">Familiar</a></li>
-                    <li><a href="#paquetes-15" class="nav-link">15 Años</a></li>
-                    <li><a href="#paquetes-graduacion" class="nav-link">Graduación</a></li>
-                    <li><a href="#paquetes-bodas" class="nav-link">Bodas</a></li>
-                    <li><a href="#paquetes-linkedin" class="nav-link">LinkedIn</a></li>
-                    <li><a href="#paquetes-embarazo" class="nav-link">Embarazo</a></li>
-                    <li><a href="#paquetes-tematicas" class="nav-link">Temáticas</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#paquetes" class="nav-link">Sesiones</a>
+                        <ul class="submenu">
+                            <li><a href="./paquetes/parejas.html" class="nav-link">Parejas</a></li>
+                            <li><a href="./paquetes/familiar.html" class="nav-link">Familiar</a></li>
+                            <li><a href="./paquetes/15anos.html" class="nav-link">15 Años</a></li>
+                            <li><a href="./paquetes/graduacion.html" class="nav-link">Graduación</a></li>
+                            <li><a href="./paquetes/bodas.html" class="nav-link">Bodas</a></li>
+                            <li><a href="./paquetes/linkedin.html" class="nav-link">LinkedIn</a></li>
+                            <li><a href="./paquetes/embarazo.html" class="nav-link">Embarazo</a></li>
+                            <li><a href="./paquetes/tematicas.html" class="nav-link">Temáticas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#ruleta" class="nav-link">Ruleta</a></li>
+                    <li><a href="#juego" class="nav-link">Juego</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portafolio</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 </ul>
             </nav>
@@ -108,9 +117,9 @@
 
     <section id="hero" class="hero-section">
         <div class="hero-bg-carousel" id="heroBgCarousel">
-            <div class="hero-bg-slide active" style="background-image: url('./static/img/carousel/hero-slide-1.svg');"></div>
-            <div class="hero-bg-slide" style="background-image: url('./static/img/carousel/hero-slide-2.svg');"></div>
-            <div class="hero-bg-slide" style="background-image: url('./static/img/carousel/hero-slide-3.svg');"></div>
+            <div class="hero-bg-slide active" style="background-image: url('./static/img/carousel/hero-slide-1.png');"></div>
+            <div class="hero-bg-slide" style="background-image: url('./static/img/carousel/hero-slide-2.png');"></div>
+            <div class="hero-bg-slide" style="background-image: url('./static/img/carousel/hero-slide-3.png');"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -134,7 +143,7 @@
             <h2 class="section-title">Carrusel Principal</h2>
             <div class="hero-carousel" id="heroCarousel">
                 <div class="carousel-slide active" data-index="0">
-                    <img src="./static/img/carousel/slide-1.svg" alt="Graduaciones Premium">
+                    <img src="./static/img/carousel/slide-1.png" alt="Graduaciones Premium">
                     <div class="carousel-copy">
                         <span>Eventos de Graduación</span>
                         <h3>Capturamos cada logro con cinematografía épica</h3>
@@ -142,7 +151,7 @@
                     </div>
                 </div>
                 <div class="carousel-slide" data-index="1">
-                    <img src="./static/img/carousel/slide-2.svg" alt="Drone Filmación">
+                    <img src="./static/img/carousel/slide-2.png" alt="Drone Filmación">
                     <div class="carousel-copy">
                         <span>Filmación con Drone</span>
                         <h3>Tomas aéreas que elevan tu narración visual</h3>
@@ -150,13 +159,20 @@
                     </div>
                 </div>
                 <div class="carousel-slide" data-index="2">
-                    <img src="./static/img/carousel/slide-3.svg" alt="Publicidad Premium">
+                    <img src="./static/img/carousel/slide-3.png" alt="Publicidad Premium">
                     <div class="carousel-copy">
                         <span>Publicidad de Alto Impacto</span>
                         <h3>Contenido diseñado para conversiones y visibilidad</h3>
                         <p>Videos comerciales estratégicos para redes, TV y plataformas digitales.</p>
                     </div>
                 </div>
+                <div class="carousel-slide" data-index="2">
+                    <img src="./static/img/carousel/slide-4.png" alt="Publicidad Premium">
+                    <div class="carousel-copy">
+                        <span>Publicidad de Alto Impacto</span>
+                        <h3>Contenido diseñado para conversiones y visibilidad</h3>
+                        <p>Videos comerciales estratégicos para redes, TV y plataformas digitales.</p>
+                    </div>
             </div>
         </div>
     </section>
@@ -341,17 +357,25 @@
             <span class="section-tagline">Paquetes</span>
             <h2 class="section-title">Catálogo de Paquetes</h2>
 
-            <nav class="packages-nav">
-                <a href="./paquetes/sesiones.html" class="nav-pill">Sesiones</a>
-                <a href="./paquetes/parejas.html" class="nav-pill">Parejas</a>
-                <a href="./paquetes/familiar.html" class="nav-pill">Familiar</a>
-                <a href="./paquetes/15anos.html" class="nav-pill">15 Años</a>
-                <a href="./paquetes/graduacion.html" class="nav-pill">Graduación</a>
-                <a href="./paquetes/bodas.html" class="nav-pill">Bodas</a>
-                <a href="./paquetes/linkedin.html" class="nav-pill">LinkedIn</a>
-                <a href="./paquetes/embarazo.html" class="nav-pill">Embarazo</a>
-                <a href="./paquetes/tematicas.html" class="nav-pill">Temáticas</a>
+            <nav class="packages-nav" aria-label="Navegación de sesiones">
+                <a href="#paquetes" class="nav-pill">Sesiones</a>
+                <a href="#paquetes-parejas" class="nav-pill">Parejas</a>
+                <a href="#paquetes-familiar" class="nav-pill">Familiar</a>
+                <a href="#paquetes-15" class="nav-pill">15 Años</a>
+                <a href="#paquetes-graduacion" class="nav-pill">Graduación</a>
+                <a href="#paquetes-bodas" class="nav-pill">Bodas</a>
+                <a href="#paquetes-linkedin" class="nav-pill">LinkedIn</a>
+                <a href="#paquetes-embarazo" class="nav-pill">Embarazo</a>
+                <a href="#paquetes-tematicas" class="nav-pill">Temáticas</a>
             </nav>
+
+            <div class="section-subsection-links" style="display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 18px;">
+                <a href="#ruleta" class="nav-pill">Ruleta</a>
+                <a href="#juego" class="nav-pill">Juego</a>
+                <a href="#nosotros" class="nav-pill">Nosotros</a>
+                <a href="#portafolio" class="nav-pill">Portafolio</a>
+                <a href="#contacto" class="nav-pill">Contacto</a>
+            </div>
 
             <!-- aside de números externos eliminado para producción; usar placeholder TU_NUMERO en los enlaces -->
             <div class="package-grid">
@@ -508,47 +532,47 @@
             
             <div class="services-grid">
                 <div class="service-card reveal">
-                    <div class="service-icon">🎬</div>
+                    <div class="service-icon"></div>
                     <h3>Producción Audiovisual</h3>
                     <p>Desarrollo conceptual, rodaje y postproducción con estándares cinematográficos internacionales.</p>
                 </div>
                 <div class="service-card reveal">
-                    <div class="service-icon">🏢</div>
+                    <div class="service-icon"></div>
                     <h3>Video Corporativo</h3>
                     <p>Comunicación estratégica de alto impacto para cultura organizacional e inversores en Perú.</p>
                 </div>
                 <div class="service-card reveal">
-                    <div class="service-icon">🚀</div>
+                    <div class="service-icon"></div>
                     <h3>Publicidad y Contenido Comercial</h3>
                     <p>Spots publicitarios de alta conversión adaptados para televisión y medios digitales de alto tráfico.</p>
                 </div>
                 <div class="service-card reveal">
-                    <div class="service-icon">🎤</div>
+                    <div class="service-icon"></div>
                     <h3>Cobertura de Eventos</h3>
                     <p>Registro multicámara premium para congresos, lanzamientos de marca y activaciones de lujo.</p>
                 </div>
                 <div class="service-card reveal">
-                    <div class="service-icon">📡</div>
+                    <div class="service-icon"></div>
                     <h3>Streaming Profesional</h3>
                     <p>Transmisiones en vivo fluidas en alta definición 4K con infraestructura redundante de conectividad.</p>
                 </div>
                 <div class="service-card reveal">
-                    <div class="service-icon">🎞️</div>
+                    <div class="service-icon"></div>
                     <h3>Documentales y Reportajes</h3>
                     <p>Investigación profunda y narración visual de largo formato con matices artísticos enriquecidos.</p>
                 </div>
                 <div class="service-card reveal">
-                    <div class="service-icon">📸</div>
+                    <div class="service-icon"></div>
                     <h3>Fotografía Profesional</h3>
                     <p>Estudios editoriales, retratos corporativos ejecutivos e imágenes comerciales de altísima definición.</p>
                 </div>
                 <div class="service-card reveal">
-                    <div class="service-icon">📱</div>
+                    <div class="service-icon"></div>
                     <h3>Producción para Redes Sociales</h3>
                     <p>Formatos dinámicos de alto engagement optimizados para retención algorítmica en entornos mobile.</p>
                 </div>
                 <div class="service-card reveal">
-                    <div class="service-icon">🛸</div>
+                    <div class="service-icon"></div>
                     <h3>Tomas Aéreas con Drone</h3>
                     <p>Perspectivas épicas operadas por pilotos certificados por la DGAC con equipamiento tecnológico avanzado.</p>
                 </div>
